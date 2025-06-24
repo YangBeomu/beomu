@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>포트폴리오.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%F0%9F%93%81-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4">📁 포트폴리오</h1>
+<h2 id="%F0%9F%91%A4-%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9C">👤 자기소개</h2>
+<p>안녕하세요. 양범기입니다.<br>
+저는 시스템의 내부 구조를 파악하고 문제의 본질을 밝혀내는 데 깊은 흥미를 가진 개발자입니다.<br>
+특히 분석적 사고와 디버깅 능력에 강점을 가지고 있으며, 예측 불가능한 동작이나 비효율적인 구조를 마주하면 단순히 고치는 데서 멈추지 않고 그 원인을 끝까지 추적하여 근본적으로 해결하려는 성향이 있습니다.</p>
+<hr>
+<h2 id="%F0%9F%9B%A0-%EA%B8%B0%EC%88%A0-%EC%8A%A4%ED%83%9D">🛠 기술 스택</h2>
+<h3 id="%F0%9F%94%B9-%ED%95%B5%EC%8B%AC-%EA%B8%B0%EC%88%A0">🔹 핵심 기술</h3>
+<ul>
+<li>C++ (C++11/14/17/20)</li>
+<li>네트워크 보안 프로그래밍</li>
+<li>윈도우 시스템 프로그래밍</li>
+<li>멀티스레딩 및 병렬 프로그래밍</li>
+<li>리버싱</li>
+</ul>
+<h3 id="%F0%9F%94%B9-%EC%82%AC%EC%9A%A9-%EB%8F%84%EA%B5%AC-%EB%B0%8F-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC">🔹 사용 도구 및 라이브러리</h3>
+<ul>
+<li><strong>빌드 도구:</strong> CMake, Make</li>
+<li><strong>라이브러리:</strong> STL, OpenCV, Qt 등</li>
+<li><strong>프레임워크:</strong> WinUI3, Qt Framework, WinAPI</li>
+<li><strong>버전 관리:</strong> Git</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%8C-%EC%A3%BC%EC%9A%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8">📌 주요 프로젝트</h2>
+<h3 id="%E2%9C%85-memorydetector--sdeveloptetris">✅ Memory_Detector + S_Develop_Tetris</h3>
+<ul>
+<li>
+<p><strong>개요:</strong><br>
+간단한 리버싱 학습을 증명하기 위해 메모리 변조 감지 미니 프로젝트를 시작했습니다. 이후 보안 교육 과정 중 서버/클라이언트 보안을 리버싱에 활용하는 수업을 계기로, 이전 시스템 프로그래밍 과제였던 Tetris 코드와 결합해 시스템 보안 프로그램을 제작하게 되었습니다.<br>
+<em>(급하게 제작되어 하드코딩된 부분이 존재합니다)</em></p>
+</li>
+<li>
+<p><strong>기간:</strong> 2025-06-17 ~ 2025-06-24 (진행 중)</p>
+</li>
+<li>
+<p><strong>사용 기술:</strong> C++, OpenSSL, CppCore, WinAPI</p>
+</li>
+</ul>
+<h4 id="%F0%9F%A7%A9-%ED%95%B5%EC%8B%AC-%EB%8F%84%EC%A0%84-%EA%B3%BC%EC%A0%9C%EC%99%80-%ED%95%B4%EA%B2%B0%EC%B1%85">🧩 핵심 도전 과제와 해결책</h4>
+<ul>
+<li>프로세스 변조 감지</li>
+<li>XML 로그 생성 및 서버 전송</li>
+<li>안티 디버깅 기법 적용</li>
+<li>클라이언트 메모리 값 은닉</li>
+<li>두 프로그램 간 하트비트 체크</li>
+</ul>
+<h4 id="%F0%9F%94%97-%EC%BD%94%EB%93%9C-%EB%A7%81%ED%81%AC">🔗 코드 링크</h4>
+<ul>
+<li><a href="https://github.com/YangBeomu/S-develop_CLI_Tetris">S_Develop_Tetris</a></li>
+<li><a href="https://github.com/YangBeomu/Memory_Detector">Memory_Detector</a></li>
+</ul>
+<h4 id="%F0%9F%93%B9-%EB%B9%84%EB%94%94%EC%98%A4">📹 비디오</h4>
+<p><video controls src="Tetris_Memory_Detector.mp4" title="Tetris Memory Detector"></video></p>
+<h4 id="%F0%9F%93%8A-%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8">📊 다이어그램</h4>
+<img src="images/tetris-memory_detector_diagram.png" alt="Tetris Memory Detector Diagram" style="max-width: 100%;"/>
+<h4 id="%F0%9F%96%BC%EF%B8%8F-%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7">🖼️ 스크린샷</h4>
+<h5 id="%F0%9F%8E%AE-tetris-sdevloptetris">🎮 Tetris (s_devlop_tetris)</h5>
+<ul>
+<li>
+<p><strong>Main 화면</strong><br>
+<img src="images/Tetris_Image01.png" alt="Tetris Main" style="max-width: 100%;"/></p>
+</li>
+<li>
+<p><strong>Pause 상태</strong><br>
+<img src="images/Tetris_Image02.png" alt="Tetris Pause" style="max-width: 100%;"/></p>
+</li>
+<li>
+<p><strong>Play 상태</strong><br>
+<img src="images/Tetris_Image03.png" alt="Tetris Play" style="max-width: 100%;"/></p>
+</li>
+</ul>
+<h5 id="%F0%9F%9B%A1%EF%B8%8F-memory-detector-console-mode">🛡️ Memory Detector (Console Mode)</h5>
+<ul>
+<li>
+<p><strong>Main 화면</strong><br>
+<img src="images/MemoryDetector_image_01.png" alt="MemoryDetector Main" style="max-width: 100%;"/></p>
+</li>
+<li>
+<p><strong>IAT 검사 화면</strong><br>
+<img src="images/MemoryDetector_image_02.png" alt="MemoryDetector DLL" style="max-width: 100%;"/></p>
+</li>
+<li>
+<p><strong>Hash 검사 화면</strong><br>
+<img src="images/MemoryDetector_image_03.png" alt="MemoryDetector Hash" style="max-width: 100%;"/></p>
+</li>
+<li>
+<p><strong>DLL 검사 화면</strong><br>
+<img src="images/MemoryDetector_image_04.png" alt="MemoryDetector IAT" style="max-width: 100%;"/></p>
+</li>
+<li>
+<p><strong>XML 로그 화면</strong><br>
+<img src="images/MemoryDetector_image_05.png" alt="MemoryDetector XML" style="max-width: 100%;"/></p>
+</li>
+</ul>
+<hr>
+<h3 id="%E2%9C%85-wizbzfreelte">✅ Wizbz_Free_LTE</h3>
+<ul>
+<li>
+<p><strong>개요:</strong><br>
+네트워크 보안 교육 중 TCP 터널링을 활용하여 LTE 망에서 통신을 과금 없이 사용할 수 있는 10년 된 취약점을 재현한 프로젝트입니다. 현재 안드로이드 포팅은 보안 미니프로젝트 및 S_Develop 프로젝트로 인해 연기 중입니다.</p>
+</li>
+<li>
+<p><strong>기간:</strong> 2025-05-24 ~ 2025-06-17 (진행 중)</p>
+</li>
+<li>
+<p><strong>사용 기술:</strong> C++, Netfilter, POSIX API, Qt</p>
+</li>
+</ul>
+<h4 id="%F0%9F%A7%A9-%ED%95%B5%EC%8B%AC-%EB%8F%84%EC%A0%84-%EA%B3%BC%EC%A0%9C%EC%99%80-%ED%95%B4%EA%B2%B0%EC%B1%85">🧩 핵심 도전 과제와 해결책</h4>
+<ul>
+<li>Fake Header를 통한 우회</li>
+<li>TCP 터널링 구현</li>
+<li>프록시 서버 개발</li>
+</ul>
+<h4 id="%F0%9F%94%97-%EC%BD%94%EB%93%9C-%EB%A7%81%ED%81%AC">🔗 코드 링크</h4>
+<ul>
+<li><a href="https://github.com/YangBeomu/Wizbz_Free-LTE">Private: Wizbz_Free_LTE</a></li>
+</ul>
+<h4 id="%F0%9F%93%B9-%EB%B9%84%EB%94%94%EC%98%A4">📹 비디오</h4>
+<p><video controls src="videos\\Wizbz_Free_LTE.mp4" title="Wizbz Free LTE Demo" style="max-width: 100%;"></video></p>
+<h4 id="%F0%9F%93%8A-%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8">📊 다이어그램</h4>
+<img src="images/Wizbz_Free_LTE_diagram.png" alt="Wizbz Free LTE Diagram" style="max-width: 100%;"/>
+<h4 id="%F0%9F%96%BC%EF%B8%8F-%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7">🖼️ 스크린샷</h4>
+<h5 id="%F0%9F%93%A1-packet-%EB%B6%84%EC%84%9D-%ED%99%94%EB%A9%B4">📡 Packet 분석 화면</h5>
+<img src="images/Wizbz_Free_LTE01.png" alt="Wizbz Free LTE Packet" style="max-width: 100%;"/>
+<hr>
+<h2 id="%E2%9A%99%EF%B8%8F-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-%EB%B0%8F-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%EC%82%AC%EB%A1%80">⚙️ 성능 최적화 및 문제 해결 사례</h2>
+<h3 id="%F0%9F%94%B9-wizbzfreelte-%ED%8C%A8%ED%82%B7-%EB%B3%91%EB%AA%A9-%ED%95%B4%EA%B2%B0">🔹 Wizbz_Free_LTE: 패킷 병목 해결</h3>
+<ul>
+<li><strong>문제:</strong><br>
+Client ↔ Proxy Server 간 통신에서 커널 read queue size 초과로 인한 병목 발생</li>
+<li><strong>해결:</strong><br>
+PacketTracer 모듈을 리팩토링하여 input/output 패킷을 분리 처리<br>
+추가적으로 스레드 분리를 통해 병렬 처리 성능 향상 예정</li>
+</ul>
+<h2 id="%F0%9F%8E%AF-%EB%94%A5%EB%9F%AC%EB%8B%9D-tracking-%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B2%BD%ED%97%98">🎯 딥러닝 Tracking 최적화 경험</h2>
+<h3 id="%F0%9F%94%B9-wizbzmacro-yolo-%EA%B8%B0%EB%B0%98-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EA%B0%9D%EC%B2%B4-%EA%B2%80%EC%B6%9C">🔹 Wizbz_Macro (YOLO 기반 이미지 객체 검출)</h3>
+<p>YOLO 딥러닝 모델을 커스텀 데이터셋으로 학습시켜 이미지 내 특정 객체를 검출하는 프로젝트를 진행한 경험이 있습니다.<br>
+해당 프로젝트에서 YOLO의 내장 Tracking 기능 사용 중, 같은 속성을 가진 객체들이 서로 겹쳐지며 <strong>ID Switch(IDSW)</strong> 현상이 자주 발생했습니다.</p>
+<ul>
+<li>
+<p><strong>초기 해결 시도:</strong><br>
+Tracking 딥러닝 모델을 별도로 추가하였으나 실시간 성능 저하 발생</p>
+</li>
+<li>
+<p><strong>최종 해결:</strong><br>
+프로그램 속도 향상을 위해 직접 IDSW 방지 로직을 구현<br>
+간단한 IoU 기반의 유사도 계산 + 이전 프레임 중심의 휴리스틱 매칭 방식을 사용하여 ID 유지 성능을 확보<br>
+(<em>칼만 필터와 유사한 구조는 아니며, 자체 예측 기반 휴리스틱입니다.</em>)</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>문의나 코드 공유 요청은 이메일 또는 GitHub를 통해 가능합니다.</p>
+</blockquote>
+
+</body>
+</html>
